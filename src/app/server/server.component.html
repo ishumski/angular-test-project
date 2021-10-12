@@ -1,1 +1,7 @@
-<p>server works!</p>
+
+<input type="text" class="" [(ngModel)]="username" (input)="handleChange($event)" />
+<p>{{ username }}</p>
+
+<button class="btn" (click)="handleClearInput()" [disabled]="isDisabled">
+  Click
+</button>

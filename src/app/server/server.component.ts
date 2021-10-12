@@ -1,21 +1,20 @@
-import { Component, OnInit } from '@angular/core'
+import { Component } from '@angular/core'
 
 @Component({
   selector: 'app-server',
-  templateUrl: './server.component.html',
-  styles: [
-    `
-      p {
-        font-size: 20px;
-        font-weight: 700;
-        color: pink;
-        text-transform: capitalize;
-      }
-    `
-  ]
+  templateUrl: './server.component.html'
 })
-export class ServerComponent implements OnInit {
-  constructor() {}
+export class ServerComponent {
+  username: string = ''
+  isDisabled: boolean = true
 
-  ngOnInit(): void {}
+  handleChange(event: Event) {
+    const value = (<HTMLInputElement>event.target).value
+    value !== '' ? (this.isDisabled = false) : (this.isDisabled = true)
+  }
+
+  handleClearInput() {
+    this.username = ''
+    this.isDisabled=true
+  }
 }
