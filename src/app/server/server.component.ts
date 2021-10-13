@@ -2,19 +2,44 @@ import { Component } from '@angular/core'
 
 @Component({
   selector: 'app-server',
-  templateUrl: './server.component.html'
+  templateUrl: './server.component.html',
+  styles: [
+    `
+      .textColor {
+        color: white;
+      }
+    `
+  ]
 })
 export class ServerComponent {
-  username: string = ''
-  isDisabled: boolean = true
+  messageIsVivible: boolean = false
+  numOfClicks: Array<Date> = []
+ 
 
-  handleChange(event: Event) {
-    const value = (<HTMLInputElement>event.target).value
-    value !== '' ? (this.isDisabled = false) : (this.isDisabled = true)
+  showMessage() {
+    this.messageIsVivible = !this.messageIsVivible
+    // this.numOfClicks.push(this.numOfClicks.length+1)
+    this.numOfClicks.push(new Date())
+
   }
 
-  handleClearInput() {
-    this.username = ''
-    this.isDisabled=true
-  }
+  // allowNewServer = false
+  // serverCreationStatus = 'No server was created!'
+  // serverName = 'TestServer'
+  // serverCreated = false
+
+  // constructor() {
+  //   setTimeout(() => {
+  //     this.allowNewServer = true
+  //   }, 2000)
+  // }
+
+  // onCreateServer() {
+  //   this.serverCreated = !this.serverCreated
+  //   this.serverCreationStatus = 'This server was created ' + this.serverName
+  // }
+
+  // onUpdatedServerName(event: Event) {
+  //   this.serverName = (<HTMLInputElement>event.target).value
+  // }
 }
