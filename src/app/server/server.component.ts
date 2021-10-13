@@ -18,7 +18,6 @@ export class ServerComponent {
 
   showMessage() {
     this.messageIsVivible = !this.messageIsVivible
-    // this.numOfClicks.push(this.numOfClicks.length+1)
     this.numOfClicks.push(new Date())
 
   }
